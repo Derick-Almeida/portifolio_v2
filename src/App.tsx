@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import GlobalStyle from "./styles/GlobalStyle";
 
-function App() {
+import Home from "./pages/Home";
+import Skills from "./pages/skills";
+import Projects from "./pages/projects";
+import Contacts from "./pages/contacts";
+import TransitionPage from "./components/TransitionPage";
+
+import { useContext } from "react";
+import { ContextTheme } from "./contexts/ThemeContext";
+
+const App = () => {
+  const { transition } = useContext(ContextTheme);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <Home />
+      <Skills />
+      <Projects />
+      <Contacts />
+      {transition && <TransitionPage />}
+    </>
   );
-}
+};
 
 export default App;
