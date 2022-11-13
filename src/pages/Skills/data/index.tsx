@@ -34,4 +34,10 @@ const matriz: Array<(number | string)[]> = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 
-export default matriz;
+const techs = {
+  groupA: ["HTML5", "CSS3", "JavaScript", "React", "Redux", "Styled Components"],
+  groupB: ["Node.js", "Express", "PostgreSQL", "TypeScript", "TypeORM", "Jest"],
+  groupC: ["VS Code", "Linux", "Vercel", "Git", "GitHub", "Docker"],
+};
+
+export { matriz, techs };

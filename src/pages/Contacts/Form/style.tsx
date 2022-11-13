@@ -9,9 +9,9 @@ export const Container = styled.div`
   > form {
     display: flex;
     flex-direction: column;
-    gap: 2.5vh;
+    gap: 1.5vh;
 
-    margin-top: 40px;
+    margin-top: 5vh;
 
     > input {
       outline: none;
@@ -79,10 +79,12 @@ export const Container = styled.div`
     }
 
     > label {
+      color: var(--white);
+      font-size: calc(0.7vw + 0.7vh + 0.6vmin);
+      letter-spacing: 0;
       position: relative;
-    }
-
-    > span {
+      top: 1vh;
+      left: 0.5vw;
     }
 
     > button {

@@ -16,6 +16,7 @@ export default createGlobalStyle`
     --blue-2: #030444;
     --blue-3: #010122;
     --yellow-1: #FFFF0099;
+    --error: #FF0000;
     --shadow:#00000080;
     --daysOne: 'Days One', sans-serif;
     --inter: 'Inter', sans-serif;

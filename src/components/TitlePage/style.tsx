@@ -24,4 +24,11 @@ export const ThemeTitle = styled.h1`
   transition: color 0.4s;
 
   pointer-events: none;
+
+  @media (max-width: 930px) {
+    font-size: calc(5vw + 5vh + 4vmin);
+  }
+  @media (max-width: 770px) {
+    font-size: calc(4.5vw + 4.5vh + 4vmin);
+  }
 `;
