@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { ContextTheme } from "../../contexts/ThemeContext";
+
 import { Container } from "./style";
 import { ContainerPages } from "../../styles/GlobalStyle";
 
@@ -5,8 +8,6 @@ import Button from "../../components/Button";
 import DevName from "../../components/DevName";
 import Navegation from "../../components/Navegation";
 import TitilePage from "../../components/TitlePage";
-import { useContext } from "react";
-import { ContextTheme } from "../../contexts/ThemeContext";
 
 const Home = () => {
   const { setTransition } = useContext(ContextTheme);

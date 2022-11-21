@@ -15,7 +15,7 @@ export const Container = styled.div`
     flex-direction: column;
     gap: 1.5vh;
 
-    margin-top: 30px;
+    margin-top: 4vh;
 
     li a {
       color: var(--white);
@@ -25,6 +25,7 @@ export const Container = styled.div`
 
       font-size: calc(1vw + 1vh + 0.5vmin);
       font-weight: 600;
+      outline: none;
 
       &:hover {
         text-decoration: underline;

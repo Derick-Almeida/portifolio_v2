@@ -9,17 +9,15 @@ export const ThemeEllipse = styled.li`
   justify-content: flex-end;
 
   > div {
-    border: 0.2vw solid var(--white);
+    border: calc(0.1vh + 0.1vw) solid var(--white);
     border-radius: 100%;
     background: ${({ active }: IActiveEllipse) =>
       !active ? "transparent" : ({ theme }) => theme.themeColor};
 
     position: relative;
-    /* width: 20px;
-    height: 20px; */
 
-    width: 100%;
-    height: 2.6vh;
+    width: calc(1vh + 1vw);
+    height: calc(1vh + 1vw);
   }
 
   &:hover {
@@ -48,7 +46,6 @@ export const ThemeEllipse = styled.li`
 
     text-transform: uppercase;
     font-weight: 400;
-    /* font-size: 1rem; */
     font-size: calc(0.8vw + 0.8vh + 0.5vmin);
 
     box-shadow: 0 4px 4px var(--shadow);
@@ -56,7 +53,6 @@ export const ThemeEllipse = styled.li`
     &::before {
       content: "";
       border-style: solid;
-      /* border-width: 10px 0 10px 20px; */
       border-width: 2vh 0 1.9vh 2vh;
       border-color: transparent transparent transparent var(--blue-2);
 
