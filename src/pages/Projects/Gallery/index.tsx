@@ -4,7 +4,8 @@ import Card from "./Card";
 import { ThemeGallery } from "./style";
 import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
 
-import connection from "./connection";
+import Loading from "./Loading";
+import { connect, getProjects } from "./connection";
 
 interface IGalleryProps {
   title: string;
@@ -24,12 +25,21 @@ interface IProjectData {
 const Gallery = ({ title, contents, scroll }: IGalleryProps) => {
   const [frontEnd, setFrontEnd] = useState<IProjectData[]>([]);
   const [backEnd, setBackEnd] = useState<IProjectData[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [token, setToken] = useState<string>("");
 
   useEffect(() => {
-    connection(setFrontEnd, setBackEnd);
+    if (token === "") {
+      connect(setToken);
+    } else {
+      setTimeout(() => {
+        console.log("--------------------------");
+        getProjects(setFrontEnd, setBackEnd, setLoading, token);
+      }, 2500);
+    }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [token]);
 
   return (
     <>
@@ -39,9 +49,11 @@ const Gallery = ({ title, contents, scroll }: IGalleryProps) => {
           <BsArrowRightCircle className="right" onClick={scroll} />
 
           <div className="conteiner">
-            {frontEnd?.map((project) => (
-              <Card key={project.id} project={project} />
-            ))}
+            {loading ? (
+              <Loading />
+            ) : (
+              frontEnd?.map((project) => <Card key={project.id} project={project} />)
+            )}
           </div>
         </ThemeGallery>
       )}
@@ -51,9 +63,11 @@ const Gallery = ({ title, contents, scroll }: IGalleryProps) => {
           <BsArrowLeftCircle className="left" onClick={scroll} />
 
           <div className="conteiner">
-            {backEnd?.map((project) => (
-              <Card key={project.id} project={project} />
-            ))}
+            {loading ? (
+              <Loading />
+            ) : (
+              backEnd?.map((project) => <Card key={project.id} project={project} />)
+            )}
           </div>
         </ThemeGallery>
       )}

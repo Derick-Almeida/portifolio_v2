@@ -1,4 +1,4 @@
-import { privateRoute, publicRoute } from "../../../../service/api";
+import { api } from "../../../../service/api";
 
 interface IProjectData {
   id: string;
@@ -9,38 +9,56 @@ interface IProjectData {
   application: string;
 }
 
-const connection = async (
-  setFrontEnd: (e: IProjectData[]) => void,
-  setBackEnd: (e: IProjectData[]) => void
-) => {
+const connect = (setToken: (e: string) => void) => {
   const loginData = {
     email: "d.a.s2000silva14@gmail.com",
     password: "32755428",
   };
 
-  publicRoute
+  api
     .post("/login", loginData)
     .then((res) => {
-      localStorage.setItem("@Portifolio:token", JSON.stringify(res.data.token));
+      console.log("oi ?");
+
+      setToken(res.data.token);
     })
     .catch((err) => console.error(err));
-
-  setTimeout(() => {
-    privateRoute
-      .get("/projects?type=frontEnd")
-      .then((res) => {
-        setFrontEnd(res.data.data);
-      })
-      .catch((err) => console.error(err));
-
-    privateRoute
-      .get("/projects?type=backEnd")
-      .then((res) => {
-        setBackEnd(res.data.data);
-      })
-      .catch((err) => console.error(err));
-  }, 1000);
   return;
 };
 
-export default connection;
+const getProjects = (
+  setFrontEnd: (e: IProjectData[]) => void,
+  setBackEnd: (e: IProjectData[]) => void,
+  setLoading: (e: boolean) => void,
+  token: string
+) => {
+  console.log(token);
+
+  api
+    .get("/projects?type=frontEnd", { headers: { Authorization: `Bearer ${token}` } })
+    .then((res) => {
+      console.log("foi");
+
+      setFrontEnd(res.data.data);
+      setLoading(false);
+    })
+    .catch((err) => {
+      setLoading(true);
+      console.error(err);
+    });
+
+  api
+    .get("/projects?type=backEnd", { headers: { Authorization: `Bearer ${token}` } })
+    .then((res) => {
+      setBackEnd(res.data.data);
+      setLoading(false);
+    })
+    .catch((err) => {
+      setLoading(true);
+      console.error(err);
+    });
+
+  return;
+};
+
+export { connect, getProjects };
