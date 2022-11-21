@@ -37,4 +37,22 @@ export const Container = styled.main`
       width: 70%;
     }
   }
+  @media (max-width: 930px) {
+    div {
+      p {
+        font-size: calc(1.8vw + 1.8vh + 0.5vmin);
+      }
+
+      > span {
+        font-size: calc(0.8vw + 0.8vh + 0.6vmin);
+      }
+    }
+  }
+  @media (max-width: 770px) {
+    div {
+      > span {
+        font-size: calc(0.8vw + 0.8vh + 0.4vmin);
+      }
+    }
+  }
 `;

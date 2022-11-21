@@ -16,6 +16,7 @@ export default createGlobalStyle`
     --blue-2: #030444;
     --blue-3: #010122;
     --yellow-1: #FFFF0099;
+    --error: #FF0000;
     --shadow:#00000080;
     --daysOne: 'Days One', sans-serif;
     --inter: 'Inter', sans-serif;
@@ -39,6 +40,12 @@ export default createGlobalStyle`
     text-decoration: none;
   }
   
+  @media (min-width: 1024px) {
+    .projects > h1,
+    .contacts > h1 {
+      left: calc(-3vh + -14vw);
+    }
+  }
 `;
 
 export const ContainerPages = styled.div`

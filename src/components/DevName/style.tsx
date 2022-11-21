@@ -21,4 +21,14 @@ export const ThemeDiv = styled.div`
 
     transform: rotate(20deg);
   }
+
+  @media (max-width: 1024px) {
+    bottom: -16%;
+  }
+  @media (max-width: 930px) {
+    bottom: -14%;
+  }
+  @media (max-width: 770px) {
+    bottom: -11%;
+  }
 `;

@@ -92,3 +92,22 @@ export const ThemeHexagon = styled.div`
     }
   }}
 `;
+
+export const Content = styled.div`
+  position: absolute;
+  z-index: 99;
+  color: var(--white);
+  top: 60%;
+  right: 30%;
+
+  > ul {
+    position: absolute;
+    list-style: disc;
+
+    > li {
+      list-style: inherit;
+      font-size: calc(1vh + 1vw + 0.6vmin);
+      white-space: nowrap;
+    }
+  }
+`;

@@ -10,18 +10,23 @@ export const ThemeTitle = styled.h1`
   font-family: var(--monoton);
   text-transform: uppercase;
   font-weight: normal;
-  letter-spacing: 15px;
+  letter-spacing: calc(0.7vh + 0.7vw);
 
   display: inline-block;
   line-height: 0;
 
   position: absolute;
   top: 50%;
-  left: -12%;
+  left: calc(-2vh + -11vw);
   z-index: 9;
 
   transform: rotate(-90deg);
   transition: color 0.4s;
 
   pointer-events: none;
+
+  /* 
+  @media (max-width: 770px) {
+    font-size: calc(4.5vw + 4.5vh + 4vmin);
+  } */
 `;
