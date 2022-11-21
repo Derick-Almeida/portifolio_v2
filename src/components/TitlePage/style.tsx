@@ -10,14 +10,14 @@ export const ThemeTitle = styled.h1`
   font-family: var(--monoton);
   text-transform: uppercase;
   font-weight: normal;
-  letter-spacing: 15px;
+  letter-spacing: calc(0.7vh + 0.7vw);
 
   display: inline-block;
   line-height: 0;
 
   position: absolute;
   top: 50%;
-  left: -12%;
+  left: calc(-2vh + -11vw);
   z-index: 9;
 
   transform: rotate(-90deg);
@@ -25,10 +25,8 @@ export const ThemeTitle = styled.h1`
 
   pointer-events: none;
 
-  @media (max-width: 930px) {
-    font-size: calc(5vw + 5vh + 4vmin);
-  }
+  /* 
   @media (max-width: 770px) {
     font-size: calc(4.5vw + 4.5vh + 4vmin);
-  }
+  } */
 `;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface ICardProps {
   bg: string;
+  links: string;
 }
 
 export const ThemeGallery = styled.div`
@@ -81,7 +82,7 @@ export const ThemeCard = styled.div`
       height: 20%;
 
       a {
-        width: 50%;
+        width: ${(prop) => prop.links};
         height: 100%;
         background: ${({ theme }) => theme.themeColor};
 

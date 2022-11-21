@@ -16,14 +16,15 @@ const Form = () => {
     }
   }, [name, email, message]);
 
-  const sendEmail = async () => {
-    //enviar email
-  };
+  // const sendEmail = async () => {
+  //   //enviar email
+  // };
 
   return (
     <Container>
       <h2>Leave a message</h2>
-      <form onSubmit={sendEmail}>
+      {/* <form onSubmit={sendEmail}> */}
+      <form>
         <label htmlFor="name">Name*</label>
         <input
           type="text"
@@ -52,9 +53,8 @@ const Form = () => {
           onChange={(e) => setMessage(e.target.value)}
         ></textarea>
 
-        <Button type="submit" disabled={disabled}>
-          Send
-        </Button>
+        {/* <Button type="submit" disabled={disabled}> */}
+        <Button disabled={true}>Send</Button>
       </form>
     </Container>
   );

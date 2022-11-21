@@ -19,14 +19,16 @@ const Card = ({ project }: ICardProps) => {
   const { id, image, name, description, application, repository } = project;
 
   return (
-    <ThemeCard bg={image} id={id}>
+    <ThemeCard bg={image} id={id} links={application !== "..." ? "50%" : "100%"}>
       {repository !== "" && (
         <div>
           <div className="buttons">
-            <a href={application} target="_blank" rel="noreferrer">
-              <FaExternalLinkAlt />
-              Link
-            </a>
+            {application !== "..." && (
+              <a href={application} target="_blank" rel="noreferrer">
+                <FaExternalLinkAlt />
+                Link
+              </a>
+            )}
             <a href={repository} target="_blank" rel="noreferrer">
               <FaGithub />
               Github

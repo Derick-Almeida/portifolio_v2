@@ -20,7 +20,7 @@ const Projects = () => {
   };
 
   return (
-    <ContainerPages>
+    <ContainerPages className="projects">
       <TitilePage title="projects" fontSize="calc(3vw + 3vh + 4vmin)" />
       <Container ref={container}>
         <Gallery title="front-end" contents="frontEnd" scroll={scrollRight} />

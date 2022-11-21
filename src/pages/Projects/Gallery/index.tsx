@@ -1,9 +1,10 @@
-import { backEnd, frontEnd } from "../Data";
+import { useEffect, useState } from "react";
 
 import Card from "./Card";
 import { ThemeGallery } from "./style";
-
 import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
+
+import connection from "./connection";
 
 interface IGalleryProps {
   title: string;
@@ -11,7 +12,25 @@ interface IGalleryProps {
   scroll: () => void;
 }
 
+interface IProjectData {
+  id: string;
+  name: string;
+  image: string;
+  description: string;
+  repository: string;
+  application: string;
+}
+
 const Gallery = ({ title, contents, scroll }: IGalleryProps) => {
+  const [frontEnd, setFrontEnd] = useState<IProjectData[]>([]);
+  const [backEnd, setBackEnd] = useState<IProjectData[]>([]);
+
+  useEffect(() => {
+    connection(setFrontEnd, setBackEnd);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       {contents === "frontEnd" && (
@@ -20,7 +39,7 @@ const Gallery = ({ title, contents, scroll }: IGalleryProps) => {
           <BsArrowRightCircle className="right" onClick={scroll} />
 
           <div className="conteiner">
-            {frontEnd.map((project) => (
+            {frontEnd?.map((project) => (
               <Card key={project.id} project={project} />
             ))}
           </div>
@@ -32,7 +51,7 @@ const Gallery = ({ title, contents, scroll }: IGalleryProps) => {
           <BsArrowLeftCircle className="left" onClick={scroll} />
 
           <div className="conteiner">
-            {backEnd.map((project) => (
+            {backEnd?.map((project) => (
               <Card key={project.id} project={project} />
             ))}
           </div>

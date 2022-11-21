@@ -9,7 +9,7 @@ import { Container } from "./style";
 
 const Contacts = () => {
   return (
-    <ContainerPages>
+    <ContainerPages className="contacts">
       <TitilePage title="contacts" fontSize="calc(3vw + 3vh + 3vmin)" />
       <Container>
         <Form />

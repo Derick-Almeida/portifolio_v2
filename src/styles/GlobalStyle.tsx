@@ -40,6 +40,12 @@ export default createGlobalStyle`
     text-decoration: none;
   }
   
+  @media (min-width: 1024px) {
+    .projects > h1,
+    .contacts > h1 {
+      left: calc(-3vh + -14vw);
+    }
+  }
 `;
 
 export const ContainerPages = styled.div`

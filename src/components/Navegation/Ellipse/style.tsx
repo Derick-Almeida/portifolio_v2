@@ -9,15 +9,15 @@ export const ThemeEllipse = styled.li`
   justify-content: flex-end;
 
   > div {
-    border: 0.2vw solid var(--white);
+    border: calc(0.1vh + 0.1vw) solid var(--white);
     border-radius: 100%;
     background: ${({ active }: IActiveEllipse) =>
       !active ? "transparent" : ({ theme }) => theme.themeColor};
 
     position: relative;
 
-    width: 100%;
-    height: 2.6vh;
+    width: calc(1vh + 1vw);
+    height: calc(1vh + 1vw);
   }
 
   &:hover {
@@ -59,22 +59,6 @@ export const ThemeEllipse = styled.li`
       position: absolute;
       right: -13px;
       top: 0;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    > div {
-      height: 2.4vh;
-    }
-  }
-  @media (max-width: 930px) {
-    > div {
-      height: 2.2vh;
-    }
-  }
-  @media (max-width: 770px) {
-    > div {
-      height: 1.8vh;
     }
   }
 `;
